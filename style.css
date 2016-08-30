@@ -193,6 +193,30 @@ img.existing-competitor {
     vertical-align: top;
 }
 
+/* LOADING HELPERS */
+.loading-overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    background: rgba(255, 255, 255, 0.58);
+    height: 100%;
+}
+
+section {
+    position: relative;
+}
+
+.loading {
+    vertical-align: middle;
+    text-align: center;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute;
+}
+
 /* ANIMATION */
 
 .rotating{
@@ -207,3 +231,4 @@ img.existing-competitor {
 		transform: rotate(360deg);
 	}
 }
+
