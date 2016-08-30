@@ -1,41 +1,4 @@
-Handlebars.registerHelper("ifCond",function(v1,operator,v2,options) {
-    switch (operator)
-    {
-        case "==":
-            return (v1==v2)?options.fn(this):options.inverse(this);
-
-        case "!=":
-            return (v1!=v2)?options.fn(this):options.inverse(this);
-
-        case "===":
-            return (v1===v2)?options.fn(this):options.inverse(this);
-
-        case "!==":
-            return (v1!==v2)?options.fn(this):options.inverse(this);
-
-        case "&&":
-            return (v1&&v2)?options.fn(this):options.inverse(this);
-
-        case "||":
-            return (v1||v2)?options.fn(this):options.inverse(this);
-
-        case "<":
-            return (v1<v2)?options.fn(this):options.inverse(this);
-
-        case "<=":
-            return (v1<=v2)?options.fn(this):options.inverse(this);
-
-        case ">":
-            return (v1>v2)?options.fn(this):options.inverse(this);
-
-        case ">=":
-         return (v1>=v2)?options.fn(this):options.inverse(this);
-
-        default:
-            return eval(""+v1+operator+v2)?options.fn(this):options.inverse(this);
-    }
-});
-
+//Define find function which exists in ES6 already
 if (!Array.prototype.find) {
     Array.prototype.find = function(f) {
         for (var i = 0; i < this.length; i++) {
