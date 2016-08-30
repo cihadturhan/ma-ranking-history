@@ -1,0 +1,209 @@
+/*UTILITIES */
+
+.ninja{
+	display: none !important;
+}
+
+
+
+
+/* COMMON */
+body {
+    background: hsl(0, 0%, 98%);
+}
+
+nav.navbar {
+    background: linear-gradient(white, hsl(0, 0%, 98%));
+    margin-bottom: 15px;
+    box-shadow: 0 1px 1px hsla(0,0%, 0%, 0.5);
+    padding: 15px;
+}
+
+aside{
+	position: fixed;
+	width: 220px;
+	min-height: 100vh;
+	background-image: linear-gradient(#4b5a6d, #23282d);
+	padding: 15px;
+	color: #e0e0e0;
+	top: 0;
+}
+
+article{
+	padding-left: 235px;
+}
+
+/* CHART */
+#container {
+    background: url(https://insights.mobileaction.co/img/header/ma-logo.png);
+    background-position: center;
+    background-size: 50%;
+    background-repeat: no-repeat;
+    min-width: 310px;
+    height: 400px;
+    margin: 0 auto;
+}
+
+
+/* TYPEAHEAD */
+
+.twitter-typeahead {
+    width: 100%;
+    vertical-align: middle;
+}
+
+.tt-query {
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.tt-hint {
+    color: #999
+}
+
+.tt-dropdown-menu {
+    width: 422px;
+    margin-top: 12px;
+    padding: 8px 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    -moz-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+}
+
+.tt-suggestion {
+    padding: 3px 20px;
+    font-size: 18px;
+    line-height: 24px;
+    clear: both;
+}
+
+.tt-suggestion.tt-cursor {
+    color: #fff;
+    background-color: #0097cf;
+}
+
+.tt-suggestion.tt-cursor .item-type{
+	color: #fff !important;
+}
+
+.tt-suggestion .item {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap !important;
+    max-width: 100%;
+    margin-top: 5px;
+}
+
+.empty-message {
+    padding: 10px;
+}
+
+.tt-suggestion .item-type {
+
+}
+
+.tt-suggestion .item-img {
+    width: 64px;
+    height: 64px;
+    border-radius: 14px;
+    float: left;
+    margin-right: 10px;
+    background-color: transparent;
+}
+
+.btn-success {
+    color: #fff;
+    background-color: hsl(164, 72%, 42%);
+    border-color: hsl(164, 72%, 38%);
+}
+
+.btn-success:hover {
+    background-color: hsl(164, 72%, 38%);
+    border-color: hsl(164, 72%, 30%);
+}
+
+.btn-success .icon-loading {
+    display: none;
+}
+
+.btn-success.searching .icon-loading {
+    visibility: visible;
+}
+
+/* APP BLOCK */
+
+.app-block-container {
+    padding: 5px 0;
+    margin: 10px 0;
+}
+
+.app-block-container#my-app {
+    padding: 0;
+    margin: 0;
+}
+
+.app-block{
+	list-style: none;
+	display: inline-block;
+	padding: 5px;
+	box-shadow: 0 1px 1px hsla(0,0%,0%, 0.3);
+	border-radius: 4px;
+	margin: 0 8px 5px 0;
+	background: hsl(0, 0%, 96%);
+}
+
+img.app-img {
+    border-radius: 5px;
+    width: 32px;
+    height: 32px;
+}
+
+span.app-name {
+    vertical-align: middle;
+}
+
+.app-close {
+    vertical-align: middle;
+    margin-left: 5px;
+    line-height: 1.1em
+}
+
+
+/* EXISTING COMPETITOR DROPDOWN */
+
+img.existing-competitor {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    margin-right: 5px;
+}
+
+/* MISC */
+
+ #lang-dropdown-wrapper{
+    display: inline-block;
+    vertical-align: top;
+}
+
+/* ANIMATION */
+
+.rotating{
+	animation: rotate-cw 2s linear infinite;
+}
+
+@keyframes rotate-cw{
+	0%{
+		transform: rotate(0deg);
+	}
+	100%{
+		transform: rotate(360deg);
+	}
+}

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Ranking History</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="css/bootstrap.min.css" />
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="style.css" />
+
+        <script src="js/lib/jquery-latest.min.js"></script>
+        <script src="js/lib/tether.min.js"></script>
+        <script src="js/lib/bootstrap.min.js"></script>
+        <script src="js/lib/highcharts.js"></script>
+        <script src="js/lib/no-data-to-display.js"></script>
+        <script src="js/lib/typeahead.bundle.min.js"></script>
+        <script src="js/lib/handlebars-v4.0.5.js"></script>
+        <script src="js/helper.js"></script>
+        <script src="app.js"></script>
+    </head>
+
+    <body>
+        <nav class="navbar navbar-light bg-faded">
+
+            <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#mobile-action-navbar" aria-controls="mobile-action-navbar" aria-expanded="false" aria-label="Toggle navigation">
+                &#9776;
+            </button>
+
+            <div id="mobile-action-navbar" class="collapse navbar-toggleable-xs">
+                <a class="navbar-brand" href="#">&nbsp;</a>
+
+            </div>
+        </nav>
+
+        <div class="container-fluid">
+            <div class="row">
+                <aside>
+                    Mobileaction
+                </aside>
+
+                <article>
+                    <section class="module-selection">
+                        <div class="card card-block">
+                            <h4 class="card-title text-primary">Ranking History</h4>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <label><small> Add a competitor </small></label>
+                                            <div class="input-group">
+                                                <input type="text" name="query" class="form-control typeahead" aria-label="Search" placeholder="Search for an app or use dropdown">
+                                                <div class="input-group-btn">
+                                                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <i id="spinner" class="ninja fa fa-spinner text-info rotating"></i>
+                                                        <span id="caret" class="sr-only">Toggle Dropdown</span> Choose Existing
+
+                                                    </button>
+                                                    <div id="competitor-dropdown" class="dropdown-menu dropdown-menu-right">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <ul class="app-block-container" id="their-app"></ul>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="row text-xs-center">
+                                        <div class="col-sm-3 offset-sm-3">
+                                            <label><small> Your App </small></label>
+                                            <ul class="app-block-container" id="my-app"></ul>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <label><small> User Rating</small></label>
+                                            <p class="lead"> 4.1 </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-sm-3 text-xs-center">
+                                            <small class="">Type</small>
+                                            <p class="lead">Bussiness</p>
+                                        </div>
+
+                                        <div class="col-sm-3 text-xs-center">
+                                            <small class=""> Visibility Score </small>
+                                            <p class="lead"> 12 </p>
+                                        </div>
+
+                                        <div class="col-sm-3 text-xs-center">
+                                            <small class="">Category Ranking</small>
+                                            <p class="lead">3</p>
+                                        </div>
+                                        <div class="col-sm-3 text-xs-center">
+                                            <small class="">Overall Ranking</small>
+                                            <p class="lead">2</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="module-chart">
+
+
+                        <div class="card card-block">
+                            <h5 class="card-title text-secondary">Daily Category and Overall Ranking History</h5>
+                            <div class="row">
+                                <div class="col-lg-6 offset-lg-6 text-xs-right">
+                                    <div id="category-select" class="btn-group btn-group-sm" data-toggle="buttons">
+                                        <label class="btn btn-outline-primary active">
+                                            <input type="radio" name="options" value="ALL" checked autocomplete="off"> All
+                                        </label>
+                                        <label class="btn btn-outline-primary">
+                                            <input type="radio" name="options" value="OVERALL" autocomplete="off"> Overall
+                                        </label>
+                                        <label class="btn btn-outline-primary">
+                                            <input type="radio" name="options" value="SOCIAL_NETWORKING" autocomplete="off"> Social Networking
+                                        </label>
+                                    </div>
+
+                                    <div id="device-select" class="btn-group btn-group-sm" data-toggle="buttons">
+                                        <label class="btn btn-outline-primary active">
+                                            <input type="radio" name="device" value="IPHONE" checked autocomplete="off" /><i class="fa fa-mobile-phone"></i> iPhone
+                                        </label>
+                                        <label class="btn btn-outline-primary">
+                                            <input type="radio" name="device" value="IPAD" autocomplete="off" /><i class="fa fa-tablet"></i> iPad
+                                        </label>
+                                    </div>
+
+
+                                    <div class="dropdown" id="lang-dropdown-wrapper">
+
+                                        <button id="dropdown-indicator" class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <img src="https://insights.mobileaction.co/lib/flag-icon-css/flags/4x3/us.svg" style="width: 18px" /> US
+                                        </button>
+
+                                        <div id="lang-dropdown" class="dropdown-menu dropdown-menu-right">
+                                            <button class="dropdown-item" data-lang="US" type="button"><img src="https://insights.mobileaction.co/lib/flag-icon-css/flags/4x3/us.svg" style="width: 18px" /> US</button>
+                                            <button class="dropdown-item" data-lang="GB" type="button"><img src="https://insights.mobileaction.co/lib/flag-icon-css/flags/4x3/gb.svg" style="width: 18px" /> GB</button>
+                                            <button class="dropdown-item" data-lang="TR" type="button"><img src="https://insights.mobileaction.co/lib/flag-icon-css/flags/4x3/tr.svg" style="width: 18px" /> TR</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div id="container"></div>
+                        </div>
+                    </section>
+
+                    <section class="module-table">
+                        <div class="card card-block">
+                            <h5 class="card-title text-secondary">Daily Category and Overall Ranking History</h5>
+                            <table class="table table-stripped table-sm">
+                                <thead>
+                                    <tr>
+                                        <th>App</th>
+                                        <th>Type</th>
+                                        <th>Category Ranking</th>
+                                        <th>Overall Ranking</th>
+                                        <th>Visibility Score</th>
+                                        <th> &nbsp;</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="app-listing">
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                </article>
+            </div>
+
+        </div>
+
+        <script id="app-block-template" type="text/x-handlebars-template">
+            <li class="app-block" id="app-{{trackId}}">
+                <img class="app-img" src="{{artworkUrl60}}">
+                <span class="app-name">{{shortName}}</span>
+
+                <button type="button" class="app-close close" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </li>
+        </script>
+
+        <script id="competitor-item-template" type="text/x-handlebars-template">
+            <a class="dropdown-item" href="#"><img class="existing-competitor" src="{{artworkUrl60}}" />{{shortName}}</a>
+        </script>
+
+        <script id="grid-item-template" type="text/x-handlebars-template">
+            <tr id="app-grid-{{trackId}}">
+                <td><img class="app-img" src="{{artworkUrl60}}" /> <span class="app-name">{{shortName}}</span></td>
+                <td>{{genre}}</td>
+                <td>{{rank.category.current}} ({{#if rank.category.positive}}
+                    <span class="text-success">+{{rank.category.value}}</span> {{else}}
+                    <span class="text-danger">{{rank.category.value}}</span> {{/if}})
+                </td>
+                <td>{{rank.overall.current}} ({{#if rank.overall.positive}}
+                    <span class="text-success">+{{rank.overall.value}}</span> {{else}}
+                    <span class="text-danger">{{rank.overall.value}}</span>{{/if}})
+                </td>
+                <td>
+                    <progress class="progress" value="{{visibility}}" max="100" aria-describedby="example-caption-1"></progress>
+                </td>
+                <td>
+                    {{#unless first}}
+                    <button type="button" class="app-close close" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    {{/unless}}
+                </td>
+            </tr>
+        </script>
+
+    </body>
+
+</html>
